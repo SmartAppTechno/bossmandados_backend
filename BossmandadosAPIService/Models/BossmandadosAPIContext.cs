@@ -16,9 +16,13 @@ namespace BossmandadosAPIService.Models
         {
         }
         public DbSet<Manboss_usuario> Manboss_usuarios { get; set; }
+        public DbSet<Manboss_repartidor> Manboss_repartidores { get; set; }
+        public DbSet<Manboss_repartidores_calificacion> Manboss_repartidores_calificaciones { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<BossmandadosAPIContext>(null);
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));

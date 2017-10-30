@@ -154,7 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RepartidorController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="DataObjects\Manboss_repartidor.cs" />
+    <Compile Include="DataObjects\Manboss_repartidores_calificacion.cs" />
     <Compile Include="DataObjects\Manboss_usuario.cs" />
     <Compile Include="Models\BossmandadosAPIContext.cs" />
     <Compile Include="Startup.cs" />

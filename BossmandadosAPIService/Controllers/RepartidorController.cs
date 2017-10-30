@@ -6,21 +6,23 @@ using BossmandadosAPIService.Models;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using System;
 
 namespace BossmandadosAPIService.Controllers
 {
     [MobileAppController]
-    public class LoginController : ApiController
+    public class RepartidorController : ApiController
     {
-        // GET api/Login
-        public async Task<Manboss_usuario> Get(string correo, string password)
+        // POST api/Login
+        [HttpPost]
+        public async Task<Manboss_usuario> PostLogin(string correo, string password)
         {   
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
                 try
                 {
 
-                    var query = "SELECT * FROM dbo.manboss_usuarios WHERE Correo = '" + correo +
+                    var query = "SELECT * FROM dbo.manboss_usuarios WHERE Rol = 2 AND Correo = '" + correo +
                         "' ";
                     var result = await context.Manboss_usuarios.SqlQuery(query).FirstAsync();
                     string hash = result.Hash;
@@ -32,7 +34,7 @@ namespace BossmandadosAPIService.Controllers
                     }
 
                 }
-                catch { }
+                catch(Exception ex) { }
                 return null;
             }
         }
