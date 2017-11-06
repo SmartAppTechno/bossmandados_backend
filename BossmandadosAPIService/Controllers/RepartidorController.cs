@@ -15,7 +15,7 @@ namespace BossmandadosAPIService.Controllers
     {
         // POST api/Login
         [HttpPost]
-        public async Task<Manboss_usuario> PostLogin(string correo, string password)
+        public async Task<Manboss_usuario> Login(string correo, string password)
         {   
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
@@ -36,6 +36,51 @@ namespace BossmandadosAPIService.Controllers
                 }
                 catch(Exception ex) { }
                 return null;
+            }
+        }
+
+        [HttpPost]
+        public async Task<bool> Estado(bool estado, int RepartidorID)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "UPDATE dbo.manboss_repartidores SET Estado = " + Convert.ToInt16(estado) + " WHERE Id = " + RepartidorID;
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    if (row != 0)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                return false;
+            }
+        }
+
+        [HttpPost]
+        public async Task<bool> CantidadEfectivo(double efectivo, int RepartidorID)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "UPDATE dbo.manboss_repartidores SET Efectivo = " + efectivo + " WHERE Id = " + RepartidorID;
+                    query = query.Replace(',', '.');
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    if (row != 0)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                return false;
             }
         }
 
