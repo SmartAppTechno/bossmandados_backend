@@ -159,6 +159,7 @@
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DataObjects\Manboss_mandados.cs" />
+    <Compile Include="DataObjects\Manboss_mandados_ruta.cs" />
     <Compile Include="DataObjects\Manboss_repartidor.cs" />
     <Compile Include="DataObjects\Manboss_repartidores_calificacion.cs" />
     <Compile Include="DataObjects\Manboss_usuario.cs" />
