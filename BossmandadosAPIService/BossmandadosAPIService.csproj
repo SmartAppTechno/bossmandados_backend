@@ -157,7 +157,9 @@
     <Compile Include="Controllers\MandadosActivosController.cs" />
     <Compile Include="Controllers\RepartidorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DataObjects\Manboss_cliente.cs" />
     <Compile Include="DataObjects\Manboss_mandados.cs" />
     <Compile Include="DataObjects\Manboss_mandados_ruta.cs" />
     <Compile Include="DataObjects\Manboss_repartidor.cs" />

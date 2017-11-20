@@ -20,6 +20,7 @@ namespace BossmandadosAPIService.Models
         public DbSet<Manboss_repartidores_calificacion> Manboss_repartidores_calificaciones { get; set; }
         public DbSet<Manboss_mandados> Manboss_mandados { get; set; }
         public DbSet<Manboss_mandados_ruta> Manboss_mandados_rutas { get; set; }
+        public DbSet<Manboss_cliente> Manboss_clientes { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<BossmandadosAPIContext>(null);
