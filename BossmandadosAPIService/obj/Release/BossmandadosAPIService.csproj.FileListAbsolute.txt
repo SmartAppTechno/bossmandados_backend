@@ -238,4 +238,3 @@ C:\Users\quiro\Desktop\BossMand\bossmandados_backend\BossmandadosAPIService\bin\
 C:\Users\quiro\Desktop\BossMand\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.csproj.CoreCompileInputs.cache
 C:\Users\quiro\Desktop\BossMand\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.dll
 C:\Users\quiro\Desktop\BossMand\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.pdb
-C:\Users\quiro\Desktop\BossMand\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.csprojResolveAssemblyReference.cache

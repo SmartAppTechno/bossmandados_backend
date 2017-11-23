@@ -15,7 +15,7 @@ namespace BossmandadosAPIService.DataObjects
         public int Tipo_pago { get; set; }
         public int Cuenta_pendiente { get; set; }
         public int Repartidor { get; set; }
-        public DateTime Tiempo_trayecto { get; set; }
-        public DateTime Tiempo_total { get; set; }
+        public DateTime? Tiempo_trayecto { get; set; }
+        public DateTime? Tiempo_total { get; set; }
     }
 }

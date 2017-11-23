@@ -24,7 +24,8 @@ namespace BossmandadosAPIService.Controllers
                     return result;
 
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) {
+                }
                 return null;
             }
         }
