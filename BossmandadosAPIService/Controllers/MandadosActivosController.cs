@@ -49,6 +49,27 @@ namespace BossmandadosAPIService.Controllers
                 return null;
             }
         }
-        
+        [HttpPost]
+        public async Task<bool> SetMandado(int MandadoID, int Estado)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+
+                    var query = "UPDATE dbo.manboss_mandados SET Estado = " + Estado + " WHERE Id = " + MandadoID;
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    if (row != 0)
+                    {
+                        return true;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+                return false;
+            }
+        }
     }
 }
