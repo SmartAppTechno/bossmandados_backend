@@ -17,6 +17,6 @@ namespace BossmandadosAPIService.DataObjects
         public string Comentarios { get; set; }
         public int? Tamanio { get; set; }
         public double? Peso { get; set; }
-        public bool Terminado { get; set; }
+        public int Terminado { get; set; }
     }
 }

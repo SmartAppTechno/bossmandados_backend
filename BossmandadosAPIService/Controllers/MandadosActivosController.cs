@@ -71,5 +71,28 @@ namespace BossmandadosAPIService.Controllers
                 return false;
             }
         }
+
+        [HttpPost]
+        public async Task<bool> CompletarPunto(int RutaID)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+
+                    var query = "UPDATE dbo.manboss_mandados_rutas SET Terminado = " + 1 + " WHERE Id = " + RutaID;
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    if (row != 0)
+                    {
+                        return true;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+                return false;
+            }
+        }
     }
 }
