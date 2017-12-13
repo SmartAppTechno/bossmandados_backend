@@ -19,12 +19,18 @@ namespace BossmandadosAPIService.Controllers
                 int ChatID = 0;
                 try
                 {
-
-                    var query = "INSERT INTO manboss_chat (mandado,repartidor) VALUES (" + MandadoID + "," + RepartidorID + ")";
-                    int row = await context.Database.ExecuteSqlCommandAsync(query);
-                    query = "SELECT * FROM manboss_chat WHERE mandado = " + MandadoID + " AND repartidor = " + RepartidorID;
-                    var result = await context.Manboss_chat.SqlQuery(query).FirstAsync();
-                    ChatID = result.Id;
+                    var query = "SELECT * FROM manboss_chat WHERE mandado = " + MandadoID + " AND repartidor = " + RepartidorID;
+                    var aux = await context.Manboss_chat.SqlQuery(query).ToListAsync();
+                    if (aux.Count == 0)
+                    {
+                        query = "INSERT INTO manboss_chat (mandado,repartidor) VALUES (" + MandadoID + "," + RepartidorID + ")";
+                        int row = await context.Database.ExecuteSqlCommandAsync(query);
+                        query = "SELECT * FROM manboss_chat WHERE mandado = " + MandadoID + " AND repartidor = " + RepartidorID;
+                        var result = await context.Manboss_chat.SqlQuery(query).FirstAsync();
+                        aux.Add(result);
+                    }
+                    
+                    ChatID = aux[0].Id;
 
                 }
                 catch (Exception ex)
