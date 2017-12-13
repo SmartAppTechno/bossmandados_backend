@@ -38,7 +38,7 @@ namespace BossmandadosAPIService.Controllers
                 try
                 {
 
-                    var query = "SELECT * FROM dbo.manboss_mandados_rutas WHERE Mandado = " + MandadoID;
+                    var query = "SELECT * FROM dbo.manboss_mandados_rutas WHERE Mandado = " + MandadoID + " AND Terminado = 0";
                     var result = await context.Manboss_mandados_rutas.SqlQuery(query).ToListAsync();
                     return result;
 
@@ -82,6 +82,7 @@ namespace BossmandadosAPIService.Controllers
 
                     var query = "UPDATE dbo.manboss_mandados_rutas SET Terminado = " + 1 + " WHERE Id = " + RutaID;
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
+
                     if (row != 0)
                     {
                         return true;
