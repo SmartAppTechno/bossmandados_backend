@@ -154,12 +154,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\MandadosActivosController.cs" />
     <Compile Include="Controllers\RepartidorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DataObjects\Manboss_comision.cs" />
     <Compile Include="DataObjects\Manboss_chat_mensaje.cs" />
     <Compile Include="DataObjects\Manboss_chat.cs" />
     <Compile Include="DataObjects\Manboss_cliente.cs" />
