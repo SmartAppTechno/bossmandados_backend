@@ -40,14 +40,14 @@ namespace BossmandadosAPIService.Controllers
             }
         }
         [HttpPost]
-        public async Task<bool> Mensaje(int ChatID, string Mensaje)
+        public async Task<bool> Mensaje(int ChatID, string Mensaje, int Rol)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
                 try
                 {
 
-                    var query = "INSERT INTO manboss_chat_mensajes (chat,mensaje) VALUES (" + ChatID + ",'" + Mensaje + "')";
+                    var query = "INSERT INTO manboss_chat_mensajes (chat,mensaje,rol) VALUES (" + ChatID + ",'" + Mensaje + "'," + Rol + ")";
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
                 }
                 catch (Exception ex)
@@ -69,6 +69,7 @@ namespace BossmandadosAPIService.Controllers
                     var aux = await context.Manboss_chat.SqlQuery(query).FirstAsync();
                     query = "SELECT * FROM dbo.manboss_chat_mensajes WHERE Chat = " + aux.Id;
                     var result = await context.Manboss_chat_mensajes.SqlQuery(query).ToListAsync();
+                    result.Sort((p1, p2) => p1.Id.CompareTo(p2.Id));
                     return result;
 
                 }

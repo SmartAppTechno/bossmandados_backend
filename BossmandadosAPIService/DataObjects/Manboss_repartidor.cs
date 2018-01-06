@@ -14,6 +14,7 @@ namespace BossmandadosAPIService.DataObjects
         public double Rating { get; set; }
         public double Efectivo { get; set; }
         public int Estado { get; set; }
+        public string Direccion { get; set; }
 
     }
 }

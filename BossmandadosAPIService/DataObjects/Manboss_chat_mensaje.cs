@@ -10,5 +10,6 @@ namespace BossmandadosAPIService.DataObjects
         public int Id { get; set; }
         public int Chat { get; set; }
         public string Mensaje { get; set; }
+        public int Rol { get; set; }
     }
 }
