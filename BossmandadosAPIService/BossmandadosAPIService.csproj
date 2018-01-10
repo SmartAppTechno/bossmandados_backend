@@ -156,6 +156,7 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\MandadosController.cs" />
     <Compile Include="Controllers\MandadosActivosController.cs" />
     <Compile Include="Controllers\RepartidorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
