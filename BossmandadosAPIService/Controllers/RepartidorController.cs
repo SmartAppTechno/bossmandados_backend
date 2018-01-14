@@ -83,6 +83,29 @@ namespace BossmandadosAPIService.Controllers
                 return false;
             }
         }
+        [HttpPost]
+        public async Task<bool> Ubicacion(double Latitud, double Longitud, int RepartidorID)
+        {
+            string lat = Latitud.ToString().Replace(',', '.');
+            string lon = Longitud.ToString().Replace(',', '.');
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "UPDATE dbo.manboss_repartidores SET latitud = " + lat + ", longitud = " + lon + "WHERE Id = " + RepartidorID;
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    if (row != 0)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                return false;
+            }
+        }
 
         private static string Encrypt(string inputString)
         {
