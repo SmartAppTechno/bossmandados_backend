@@ -92,8 +92,13 @@ namespace BossmandadosAPIService.Controllers
             {
                 try
                 {
-                    var query = "UPDATE dbo.manboss_repartidores SET latitud = " + lat + ", longitud = " + lon + "WHERE Id = " + RepartidorID;
+                    DateTime myDateTime = DateTime.Now;
+                    string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+                    var query = "INSERT INTO dbo.manboss_repartidores_ubicaciones (repartidor,latitud,longitud,hora) VALUES (" + RepartidorID + "," + lat + "," + lon + ",'" + sqlFormattedDate + "')";
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
+                    query = "UPDATE dbo.manboss_repartidores SET latitud = " + lat + ", longitud = " + lon + "WHERE Id = " + RepartidorID;
+                    row = await context.Database.ExecuteSqlCommandAsync(query);
                     if (row != 0)
                     {
                         return true;
@@ -101,7 +106,6 @@ namespace BossmandadosAPIService.Controllers
                 }
                 catch (Exception ex)
                 {
-
                 }
                 return false;
             }
