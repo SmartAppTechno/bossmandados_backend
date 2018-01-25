@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using BossmandadosAPIService.Models;
 using System;
 using System.Collections.Generic;
+using Microsoft.Azure.NotificationHubs;
+using Microsoft.Azure.Mobile.Server;
 
 namespace BossmandadosAPIService.Controllers
 {
@@ -14,6 +16,7 @@ namespace BossmandadosAPIService.Controllers
         [HttpPost]
         public async Task<List<Manboss_mandados>> Mandados(int RepartidorID, int estado)
         {
+            List<Manboss_mandados> mandados = null;
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
                 try
@@ -21,12 +24,16 @@ namespace BossmandadosAPIService.Controllers
 
                     var query = "SELECT * FROM dbo.manboss_mandados WHERE Estado = " + estado + " AND Repartidor = " + RepartidorID;
                     var result = await context.Manboss_mandados.SqlQuery(query).ToListAsync();
-                    return result;
+
+
+                    mandados = result;
 
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                 }
-                return null;
+
+                return mandados;
             }
         }
 
@@ -44,7 +51,7 @@ namespace BossmandadosAPIService.Controllers
 
                 }
                 catch (Exception ex)
-                { 
+                {
                 }
                 return null;
             }
@@ -56,9 +63,18 @@ namespace BossmandadosAPIService.Controllers
             {
                 try
                 {
-
                     var query = "UPDATE dbo.manboss_mandados SET Estado = " + Estado + " WHERE Id = " + MandadoID;
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
+
+                    if (Estado == 3)
+                    {
+                        row = await AgregarCobro(MandadoID, context);
+                    }
+                    else if (Estado == 4)
+                    {
+                        row = await FinalizarCobro(MandadoID, context);
+                    }
+
                     if (row != 0)
                     {
                         return true;
@@ -95,5 +111,65 @@ namespace BossmandadosAPIService.Controllers
                 return false;
             }
         }
+
+        private async static Task<int> AgregarCobro(int MandadoID, BossmandadosAPIContext context)
+        {
+            int row = 0;
+            try
+            {
+                //Conseguir Latitud y Longitud del repartidor
+
+                string query = "SELECT * FROM dbo.manboss_mandados WHERE id = " + MandadoID;
+                Manboss_mandados mandado = await context.Manboss_mandados.SqlQuery(query).FirstAsync();
+                query = "SELECT * FROM dbo.manboss_repartidores WHERE id = " + mandado.Repartidor;
+                Manboss_repartidor result = await context.Manboss_repartidores.SqlQuery(query).FirstAsync();
+
+
+
+                DateTime myDateTime = DateTime.Now;
+                string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                string lat = result.Latitud.ToString().Replace(',', '.');
+                string lon = result.Longitud.ToString().Replace(',', '.');
+                query = "INSERT INTO dbo.manboss_mandados_cobros (mandado,latitud,longitud,tiempoInicio,distancia,tiempo) VALUES (" + MandadoID + "," + lat + "," + lon + ",'" + sqlFormattedDate + "',37,0)";
+                row = await context.Database.ExecuteSqlCommandAsync(query);
+            }
+            catch (Exception e)
+            {
+                string aux = e.Message;
+            }
+            return row;
+        }
+        private async static Task<int> FinalizarCobro(int MandadoID, BossmandadosAPIContext context)
+        {
+            int row = 0;
+            try
+            {
+
+
+
+                DateTime fin = DateTime.Now;
+                string sqlFormattedDate = fin.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                string query = "UPDATE dbo.manboss_mandados_cobros SET tiempoFin = '" + sqlFormattedDate  +"'  WHERE mandado = " + MandadoID;
+                row = await context.Database.ExecuteSqlCommandAsync(query);
+
+                query = "SELECT * FROM dbo.manboss_mandados_cobros WHERE Mandado = " + MandadoID;
+                Manboss_mandados_cobro cobro = await context.Manboss_mandados_cobros.SqlQuery(query).FirstAsync();
+
+                DateTime inicio = cobro.TiempoInicio;
+                double tiempo = (fin - inicio).TotalSeconds / 60;
+                double distancia = cobro.Distancia;
+                double tarifa_dinamica = 1;
+                double costo = (tiempo + distancia) * tarifa_dinamica;
+                string total = costo.ToString().Replace(',', '.');
+
+                query = "UPDATE dbo.manboss_mandados SET total = " + costo + " WHERE id = " + MandadoID;
+                row = await context.Database.ExecuteSqlCommandAsync(query);
+            }
+            catch (Exception e)
+            {
+            }
+            return row;
+        }
     }
+
 }

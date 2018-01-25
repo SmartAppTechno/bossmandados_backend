@@ -99,10 +99,19 @@ namespace BossmandadosAPIService.Controllers
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
                     query = "UPDATE dbo.manboss_repartidores SET latitud = " + lat + ", longitud = " + lon + "WHERE Id = " + RepartidorID;
                     row = await context.Database.ExecuteSqlCommandAsync(query);
+
+                    if (row == 0)
+                    {
+                        return false;
+                    }
+
+                    row = await MandadoPosition(RepartidorID, context, Latitud, Longitud);
+
                     if (row != 0)
                     {
                         return true;
                     }
+
                 }
                 catch (Exception ex)
                 {
@@ -123,5 +132,60 @@ namespace BossmandadosAPIService.Controllers
             }
             return result.ToString();
         }
+
+        private async static Task<int> MandadoPosition(int RepartidorID, BossmandadosAPIContext context, double Latitud, double Longitud)
+        {
+            int row = 0;
+            try
+            {
+               
+                string query = "SELECT * FROM dbo.manboss_mandados WHERE Estado = 3 AND Repartidor = " + RepartidorID;
+                var result = await context.Manboss_mandados.SqlQuery(query).ToListAsync();
+                
+                if (result.Count > 0)
+                {
+                    string lat = Latitud.ToString().Replace(',', '.');
+                    string lon = Longitud.ToString().Replace(',', '.');
+
+                    query = "SELECT * FROM dbo.manboss_mandados_cobros WHERE Mandado = " + result[0].Id;
+                    Manboss_mandados_cobro cobro = await context.Manboss_mandados_cobros.SqlQuery(query).FirstAsync();
+
+                    // X = Longitud
+                    // Y = Latitud
+                    double distancia = cobro.Distancia + getDistancia(cobro.Longitud, Longitud, cobro.Latitud, Latitud);
+                    string dist = distancia.ToString().Replace(',', '.');
+
+
+                    query = "UPDATE dbo.manboss_mandados_cobros SET latitud = " + lat + ", longitud = " + lon + ", distancia = " + dist + " WHERE mandado = " + result[0].Id;
+                    row = await context.Database.ExecuteSqlCommandAsync(query);
+                }
+                else
+                {
+                    row = 1;
+                }
+            }
+            catch
+            {
+            }
+            return row;
+        }
+        private static double XtoKm(double x)
+        {
+            return x * 10000.0 / 90.0;
+        }
+        private static double YtoKm(double y)
+        {
+            return y * 111.195;
+        }
+        private static double getDistancia(double c_x1, double c_x2, double c_y1, double c_y2)
+        {
+            double x1 = XtoKm(c_x1);
+            double x2 = XtoKm(c_x2);
+            double y1 = YtoKm(c_y1);
+            double y2 = YtoKm(c_y2);
+            return Math.Sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+        }
+
+
     }
 }

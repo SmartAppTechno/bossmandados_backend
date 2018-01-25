@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  bossmandadosapiservice:
+    image: bossmandadosapiservice
+    build:
+      context: .\BossmandadosAPIService
+      dockerfile: Dockerfile

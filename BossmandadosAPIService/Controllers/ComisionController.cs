@@ -39,7 +39,7 @@ namespace BossmandadosAPIService.Controllers
                 string query = string.Empty;
                 try
                 {
-                    string val = GetComision(MandadoID);
+                    string val = await GetComision(MandadoID,context);
                     
                     query = "INSERT INTO manboss_comisiones (mandado,repartidor,comision) VALUES (" + MandadoID + "," + RepartidorID + "," + val + ")";
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
@@ -87,10 +87,14 @@ namespace BossmandadosAPIService.Controllers
                 return comisiones;
             }
         }
-        private string GetComision(int MandadoID)
+        private async Task<string> GetComision(int MandadoID, BossmandadosAPIContext context)
         {
-            Random random = new Random();
-            double val = 20 + (random.NextDouble() * 50);
+            string query = "SELECT * FROM dbo.manboss_mandados WHERE id = "+ MandadoID;
+            Manboss_mandados result = await context.Manboss_mandados.SqlQuery(query).FirstAsync();
+
+            double porcentaje = 0.65;
+
+            double val = result.Total * porcentaje;
             string ans = val.ToString();
             ans = ans.Replace(',', '.');
             return ans;

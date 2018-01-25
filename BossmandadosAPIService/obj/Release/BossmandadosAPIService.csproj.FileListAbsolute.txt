@@ -360,3 +360,5 @@ C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\
 C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.csproj.CoreCompileInputs.cache
 C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.dll
 C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\BossmandadosAPIService\obj\Release\BossmandadosAPIService.pdb
+C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\BossmandadosAPIService\bin\Microsoft.Azure.NotificationHubs.dll
+C:\Users\RodrigoQuirozdeLuna\Desktop\SmartApp\BossMandados\bossmandados_backend\BossmandadosAPIService\bin\Microsoft.Azure.NotificationHubs.xml
