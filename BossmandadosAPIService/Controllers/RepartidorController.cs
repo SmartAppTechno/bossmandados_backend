@@ -84,8 +84,9 @@ namespace BossmandadosAPIService.Controllers
             }
         }
         [HttpPost]
-        public async Task<bool> Ubicacion(double Latitud, double Longitud, int RepartidorID)
+        public async Task<int> Ubicacion(double Latitud, double Longitud, int RepartidorID)
         {
+            int mandados = 0;
             string lat = Latitud.ToString().Replace(',', '.');
             string lon = Longitud.ToString().Replace(',', '.');
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
@@ -99,24 +100,18 @@ namespace BossmandadosAPIService.Controllers
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
                     query = "UPDATE dbo.manboss_repartidores SET latitud = " + lat + ", longitud = " + lon + "WHERE Id = " + RepartidorID;
                     row = await context.Database.ExecuteSqlCommandAsync(query);
-
-                    if (row == 0)
-                    {
-                        return false;
-                    }
-
+                    
                     row = await MandadoPosition(RepartidorID, context, Latitud, Longitud);
 
-                    if (row != 0)
-                    {
-                        return true;
-                    }
+                    query = "SELECT * FROM dbo.manboss_mandados WHERE Estado = 2 AND Repartidor = " + RepartidorID;
+                    var result = await context.Manboss_mandados.SqlQuery(query).ToListAsync();
+                    mandados = result.Count;
 
                 }
                 catch (Exception ex)
                 {
                 }
-                return false;
+                return mandados;
             }
         }
 
