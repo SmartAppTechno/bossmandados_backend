@@ -95,6 +95,7 @@ namespace BossmandadosAPIService.Controllers
             double porcentaje = 0.65;
 
             double val = result.Total * porcentaje;
+            val = Math.Round(val / 2) * 2;
             string ans = val.ToString();
             ans = ans.Replace(',', '.');
             return ans;

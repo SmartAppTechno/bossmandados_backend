@@ -160,6 +160,9 @@ namespace BossmandadosAPIService.Controllers
                 double distancia = cobro.Distancia;
                 double tarifa_dinamica = 1;
                 double costo = (tiempo + distancia) * tarifa_dinamica;
+
+                costo = Math.Round(costo * 2) / 2;
+
                 string total = costo.ToString().Replace(',', '.');
 
                 query = "UPDATE dbo.manboss_mandados SET total = " + costo + " WHERE id = " + MandadoID;
