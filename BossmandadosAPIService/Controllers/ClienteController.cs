@@ -27,7 +27,7 @@ namespace BossmandadosAPIService.Controllers {
         public async Task<Manboss_cliente> Login(string correo) {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
                 try {
-                    var query = "SELECT * FROM dbo.manboss_clientes WHERE correo = " + correo;
+                    var query = "SELECT * FROM dbo.manboss_clientes WHERE correo = '" + correo + "'";
                     var result = await context.Manboss_clientes.SqlQuery(query).FirstAsync();
                     return result;
                     
