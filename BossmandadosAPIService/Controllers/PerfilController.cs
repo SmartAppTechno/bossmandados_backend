@@ -5,18 +5,13 @@ using System.Threading.Tasks;
 using BossmandadosAPIService.Models;
 using System;
 
-namespace BossmandadosAPIService.Controllers
-{
+namespace BossmandadosAPIService.Controllers {
     [MobileAppController]
-    public class PerfilController : ApiController
-    {
+    public class PerfilController : ApiController {
         [HttpPost]
-        public async Task<Manboss_repartidor> Repartidor(int RepartidorID, bool MetodoRepartidor)
-        {
-            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
-            {
-                try
-                {
+        public async Task<Manboss_repartidor> Repartidor(int RepartidorID, bool MetodoRepartidor) {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
+                try {
 
                     var query = "SELECT * FROM dbo.manboss_repartidores WHERE Repartidor = " + RepartidorID;
                     var result = await context.Manboss_repartidores.SqlQuery(query).FirstAsync();
@@ -27,14 +22,11 @@ namespace BossmandadosAPIService.Controllers
                 return null;
             }
         }
-        
+
         [HttpPost]
-        public async Task<double> ActualizarRaiting(int RepartidorID, bool MetodoRaiting)
-        {
-            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
-            {
-                try
-                {
+        public async Task<double> ActualizarRaiting(int RepartidorID, bool MetodoRaiting) {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
+                try {
 
                     var query = "SELECT * FROM dbo.manboss_repartidores_calificaciones WHERE Repartidor = " + RepartidorID;
                     var calificaciones = await context.Manboss_repartidores_calificaciones.SqlQuery(query).ToListAsync();
@@ -42,15 +34,13 @@ namespace BossmandadosAPIService.Controllers
                     int n = 0;
                     double suma = 0;
 
-                    foreach (Manboss_repartidores_calificacion calificacion in calificaciones)
-                    {
+                    foreach (Manboss_repartidores_calificacion calificacion in calificaciones) {
                         n++;
                         suma += calificacion.Calificacion;
                     }
 
                     double promedio = 0;
-                    if (n != 0)
-                    {
+                    if (n != 0) {
                         promedio = suma / n;
                     }
 
@@ -63,6 +53,6 @@ namespace BossmandadosAPIService.Controllers
                 return 0;
             }
         }
-        
+
     }
 }
