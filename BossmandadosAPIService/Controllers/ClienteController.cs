@@ -41,8 +41,8 @@ namespace BossmandadosAPIService.Controllers {
         public async Task<Manboss_cliente> CrearCliente(string correo, string nombre, string telefono, string direccion, string red_social) {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
                 try {
-                    var query = "INSERTO INTO manboss_clientes (nombre, correo, telefono, red_social, direccion)" +
-                        "VALIES ('" + nombre + "','" + correo + "','" + telefono + "','" + red_social + "','" + direccion + "')";
+                    var query = "INSERT INTO manboss_clientes (nombre, correo, telefono, red_social, direccion)" +
+                        "VALUES ('" + nombre + "','" + correo + "','" + telefono + "','" + red_social + "','" + direccion + "')";
                     int row = await context.Database.ExecuteSqlCommandAsync(query);
                 }
                 catch {
