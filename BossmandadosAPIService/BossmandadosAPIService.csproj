@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\NuevoMandadoController.cs" />
     <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\MandadosController.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="DataObjects\Manboss_mandados_ruta.cs" />
     <Compile Include="DataObjects\Manboss_repartidor.cs" />
     <Compile Include="DataObjects\Manboss_repartidores_calificacion.cs" />
+    <Compile Include="DataObjects\Manboss_servicio.cs" />
     <Compile Include="DataObjects\Manboss_usuario.cs" />
     <Compile Include="Models\BossmandadosAPIContext.cs" />
     <Compile Include="Startup.cs" />
