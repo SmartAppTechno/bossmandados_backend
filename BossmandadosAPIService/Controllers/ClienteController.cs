@@ -51,5 +51,77 @@ namespace BossmandadosAPIService.Controllers {
             }
         }
 
+        [HttpPost]
+        public async Task<Manboss_cliente> Crear_facebook(string correo, string nombre, string red_social)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "INSERT INTO manboss_clientes (nombre, correo, red_social)" +
+                        "VALUES ('" + nombre + "','" + correo + "','" + red_social + "')";
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                }
+                catch
+                {
+                }
+                return await Login(correo);
+            }
+        }
+
+        [HttpPost]
+        public async Task<Manboss_cliente> Crear_correo(string correo, string nombre, string red_social,string contrasenia,string hash)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "INSERT INTO manboss_clientes (nombre, correo, red_social, contrasenia,hash)" +
+                        "VALUES ('" + nombre + "','" + correo + "','" + red_social + "','" + contrasenia + "','" + hash + "')";
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                }
+                catch
+                {
+                }
+                return await Login(correo);
+            }
+        }
+
+        [HttpPost]
+        public async Task<Manboss_cliente> Registrar_cliente(string id,string telefono,string direccion,string latitud, string longitud)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "UPDATE manboss_clientes SET telefono = '" + telefono + "', direccion = '" + direccion + "', latitud = '"
+                        + latitud + "', longitud = '" + longitud + "'  WHERE id ='" + id + "'";
+                    int row = await context.Database.ExecuteSqlCommandAsync(query);
+                }
+                catch
+                {
+                }
+                return await Get_cliente(id);
+            }
+        }
+
+        [HttpPost]
+        public async Task<Manboss_cliente> Get_cliente(string id)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "SELECT * FROM dbo.manboss_clientes WHERE id = '" + id + "'";
+                    var result = await context.Manboss_clientes.SqlQuery(query).FirstAsync();
+                    return result;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
     }
 }

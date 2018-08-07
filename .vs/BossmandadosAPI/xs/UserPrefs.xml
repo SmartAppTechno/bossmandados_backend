@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{209FA716-A7AD-4095-BD70-C8710FC66FA7}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BossmandadosAPIService/Controllers/ClienteController.cs">
+    <Files>
+      <File FileName="BossmandadosAPIService/Controllers/ClienteController.cs" Line="33" Column="21" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.BossmandadosAPIService PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
