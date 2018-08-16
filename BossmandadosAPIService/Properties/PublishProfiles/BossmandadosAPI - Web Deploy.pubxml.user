@@ -7,5 +7,290 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfoRZ01YU2kuf0xI17a6N8wAAAAACAAAAAAAQZgAAAAEAACAAAADk5ghiX8K+k8OBPenjszrMLF+0ClIs/jy88+qMpfApgwAAAAAOgAAAAAIAACAAAADbJ/64qMncdDP1Bi1hE2ubB1/F+Ppu7JeDyh3tc/UxPIAAAAD1XkWPjPMa6f8q7NMMJUtNqavbU652feqhm7iVnQfGQfc6Exnx8mGnSgr44/TK74kB+f8LrLorvb4k6uzx/gJZPni1Fx64fvsdyRGN975n+uUBM7PnHktKCWMuOtKRsBfRxKQTVqSeSEiNh5GgI+kjrBN9o1dl8IO8eUjrcxH6k0AAAACee6daPC4JWyr7ltRoNzX8F5+q4viLAQpUfpXvKmXzkSALGUH57Jmt5iNLWpLPDtVOuvVmpQCPib/S7gDYlSZd</EncryptedPassword>
+    <_PublishTargetUrl>C:\Users\IsaacMendez\Documents</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/BossmandadosAPIService.dll">
+      <publishTime>08/15/2018 11:35:52</publishTime>
+    </File>
+    <File Include="bin/BossmandadosAPIService.pdb">
+      <publishTime>08/15/2018 11:35:52</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.Authentication.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.Entity.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.Home.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.Quickstart.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.Mobile.Server.Tables.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Azure.NotificationHubs.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Logging.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Configuration.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.OData.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Owin.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Tracing.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Azure.Mobile.Server.Entity.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Azure.Mobile.Server.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Azure.Mobile.Server.Tables.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>08/15/2018 11:09:46</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>08/15/2018 11:09:47</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>08/15/2018 11:09:45</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/15/2018 11:59:29</publishTime>
+    </File>
+  </ItemGroup>
 </Project>
