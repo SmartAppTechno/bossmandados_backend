@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BossmandadosAPIService.DataObjects;
 using BossmandadosAPIService.Models;
 using System;
+using System.Configuration;
 
 namespace BossmandadosAPIService.Controllers {
     [MobileAppController]
@@ -13,7 +14,7 @@ namespace BossmandadosAPIService.Controllers {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
                 try {
 
-                    var query = "SELECT * FROM dbo.manboss_clientes WHERE Id = " + ClienteID;
+                    var query = "SELECT * FROM dbo.manboss_clientes WHERE Id=" + ClienteID;
                     var result = await context.Manboss_clientes.SqlQuery(query).FirstAsync();
                     return result;
 
@@ -32,7 +33,8 @@ namespace BossmandadosAPIService.Controllers {
                     return result;
                     
                 }
-                catch {
+                catch(Exception ex){
+                    String error = ex.ToString();
                     return null;
                 }
             }
@@ -101,12 +103,12 @@ namespace BossmandadosAPIService.Controllers {
                 catch
                 {
                 }
-                return await Get_cliente(id);
+                return await Get_cliente(id,"get_cliente");
             }
         }
 
         [HttpPost]
-        public async Task<Manboss_cliente> Get_cliente(string id)
+        public async Task<Manboss_cliente> Get_cliente(string id,string get)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {

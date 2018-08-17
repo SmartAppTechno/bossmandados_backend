@@ -14,6 +14,7 @@ namespace BossmandadosAPIService.Models
 
         public BossmandadosAPIContext() : base(connectionStringName)
         {
+
         }
         public DbSet<Manboss_usuario> Manboss_usuarios { get; set; }
         public DbSet<Manboss_repartidor> Manboss_repartidores { get; set; }

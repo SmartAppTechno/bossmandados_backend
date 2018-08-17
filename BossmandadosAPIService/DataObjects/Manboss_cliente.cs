@@ -15,5 +15,7 @@ namespace BossmandadosAPIService.DataObjects
         public string Direccion { get; set; }
         public double? Latitud { get; set; }
         public double? Longitud { get; set; }
+        public string Contrasenia { get; set; }
+        public string Hash { get; set; }
     }
 }
