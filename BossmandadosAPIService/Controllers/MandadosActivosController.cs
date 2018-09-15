@@ -30,6 +30,26 @@ namespace BossmandadosAPIService.Controllers
         }
 
         [HttpPost]
+        public async Task<List<Manboss_mandados>> Mandados_cliente(int clienteID, int estado)
+        {
+            List<Manboss_mandados> mandados = null;
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+
+                    var query = "SELECT * FROM dbo.manboss_mandados WHERE Estado = " + estado + " AND cliente = " + clienteID;
+                    var result = await context.Manboss_mandados.SqlQuery(query).ToListAsync();
+                    mandados = result;
+                }
+                catch
+                {
+                }
+                return mandados;
+            }
+        }
+
+        [HttpPost]
         public async Task<List<Manboss_mandados_ruta>> Ruta(int MandadoID) {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
                 try {

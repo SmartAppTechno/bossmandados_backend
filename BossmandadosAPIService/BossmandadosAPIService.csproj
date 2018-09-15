@@ -121,6 +121,7 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.5\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
@@ -166,10 +167,12 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\MandadosController.cs" />
     <Compile Include="Controllers\MandadosActivosController.cs" />
+    <Compile Include="Controllers\PromocionesController.cs" />
     <Compile Include="Controllers\RepartidorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DataObjects\Manboss_direcciones.cs" />
     <Compile Include="DataObjects\Manboss_mandados_cobro.cs" />
     <Compile Include="DataObjects\Manboss_comision.cs" />
     <Compile Include="DataObjects\Manboss_chat_mensaje.cs" />
@@ -177,6 +180,7 @@
     <Compile Include="DataObjects\Manboss_cliente.cs" />
     <Compile Include="DataObjects\Manboss_mandados.cs" />
     <Compile Include="DataObjects\Manboss_mandados_ruta.cs" />
+    <Compile Include="DataObjects\Manboss_promociones.cs" />
     <Compile Include="DataObjects\Manboss_repartidor.cs" />
     <Compile Include="DataObjects\Manboss_repartidores_calificacion.cs" />
     <Compile Include="DataObjects\Manboss_servicio.cs" />
@@ -199,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\BossmandadosAPI - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

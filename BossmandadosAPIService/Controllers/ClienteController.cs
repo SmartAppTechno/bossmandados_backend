@@ -103,12 +103,12 @@ namespace BossmandadosAPIService.Controllers {
                 catch
                 {
                 }
-                return await Get_cliente(id,"get_cliente");
+                return await Get_cliente(id);
             }
         }
 
         [HttpPost]
-        public async Task<Manboss_cliente> Get_cliente(string id,string get)
+        public async Task<Manboss_cliente> Get_cliente(string id)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
@@ -120,6 +120,46 @@ namespace BossmandadosAPIService.Controllers {
                 }
                 catch
                 {
+                    return null;
+                }
+            }
+        }
+
+        [HttpPost]
+        public async Task<Manboss_direcciones> GetDirecciones()
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "SELECT * FROM dbo.manboss_clientes_direcciones";
+                    var result = await context.Manboss_direcciones.SqlQuery(query).FirstAsync();
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                    String error = ex.ToString();
+                    return null;
+                }
+            }
+        }
+
+        [HttpPost]
+        public async Task<Manboss_direcciones> GetDireccion(int id)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    var query = "SELECT * FROM dbo.manboss_clientes_direcciones WHERE id = " + id;
+                    var result = await context.Manboss_direcciones.SqlQuery(query).FirstAsync();
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                    String error = ex.ToString();
                     return null;
                 }
             }

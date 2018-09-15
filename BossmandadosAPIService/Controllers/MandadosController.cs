@@ -29,7 +29,7 @@ namespace BossmandadosAPIService.Controllers
                 return null;
             }
         }
-        public async Task<List<Manboss_mandados_ruta>> Ruta(int MandadoID, int Estado)
+        public async Task<List<Manboss_mandados_ruta>> Ruta(int MandadoID)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
@@ -47,7 +47,27 @@ namespace BossmandadosAPIService.Controllers
                 return null;
             }
         }
-        
+
+        [HttpPost]
+        public async Task<Manboss_mandados> Mandados_cliente(int clienteID)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+
+                    var query = "SELECT * FROM dbo.manboss_mandados WHERE cliente = " + clienteID;
+                    var result = await context.Manboss_mandados.SqlQuery(query).FirstAsync();
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+                }
+                return null;
+            }
+        }
+
 
 
     }
