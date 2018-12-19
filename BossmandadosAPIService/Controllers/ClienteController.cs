@@ -103,12 +103,12 @@ namespace BossmandadosAPIService.Controllers {
                 catch
                 {
                 }
-                return await Get_cliente(id);
+                return await Get_cliente(id,"Cliente");
             }
         }
 
         [HttpPost]
-        public async Task<Manboss_cliente> Get_cliente(string id)
+        public async Task<Manboss_cliente> Get_cliente(string id,string accion)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
@@ -146,7 +146,7 @@ namespace BossmandadosAPIService.Controllers {
         }
 
         [HttpPost]
-        public async Task<Manboss_direcciones> GetDireccion(int id)
+        public async Task<Manboss_direcciones> GetDireccion(int id,string accion)
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {

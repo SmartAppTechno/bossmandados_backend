@@ -12,7 +12,7 @@ namespace BossmandadosAPIService.Controllers
     public class PromocionesController : ApiController
     {
         [HttpPost]
-        public async Task<Manboss_promociones> Promociones()
+        public async Task<List<Manboss_promociones>> Promociones()
         {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext())
             {
@@ -20,7 +20,7 @@ namespace BossmandadosAPIService.Controllers
                 {
 
                     var query = "SELECT * FROM dbo.manboss_promociones";
-                    var result = await context.Manboss_promociones.SqlQuery(query).FirstAsync();
+                    var result = await context.Manboss_promociones.SqlQuery(query).ToListAsync();
                     return result;
 
                 }

@@ -10,7 +10,7 @@ namespace BossmandadosAPIService.DataObjects
         public int Id { get; set; }
         public int Cliente { get; set; }
         public string Direccion { get; set; }
-        public float Latitud { get; set; }
-        public float Longitud { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
     }
 }
