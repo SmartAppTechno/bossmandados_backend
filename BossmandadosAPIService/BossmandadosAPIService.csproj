@@ -219,7 +219,6 @@
     <Compile Include="DataObjects\Manboss_cliente.cs" />
     <Compile Include="DataObjects\Manboss_mandados.cs" />
     <Compile Include="DataObjects\Manboss_mandados_ruta.cs" />
-    <Compile Include="DataObjects\Manboss_polyline_direcciones.cs" />
     <Compile Include="DataObjects\Manboss_promociones.cs" />
     <Compile Include="DataObjects\Manboss_repartidor.cs" />
     <Compile Include="DataObjects\Manboss_repartidores_calificacion.cs" />
