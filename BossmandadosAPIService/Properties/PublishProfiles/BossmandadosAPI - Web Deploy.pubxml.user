@@ -20,10 +20,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/15/2018 11:07:31</publishTime>
     </File>
     <File Include="bin/BossmandadosAPIService.dll">
-      <publishTime>01/28/2019 18:03:29</publishTime>
+      <publishTime>03/08/2019 17:44:49</publishTime>
     </File>
     <File Include="bin/BossmandadosAPIService.pdb">
-      <publishTime>01/28/2019 18:03:29</publishTime>
+      <publishTime>03/08/2019 17:44:49</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Azure.Mobile.Server.Authentication.resources.dll">
       <publishTime>10/15/2018 11:07:32</publishTime>
