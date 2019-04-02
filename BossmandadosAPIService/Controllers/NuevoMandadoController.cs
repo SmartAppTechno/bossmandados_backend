@@ -5,6 +5,7 @@ using BossmandadosAPIService.DataObjects;
 using BossmandadosAPIService.Models;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace BossmandadosAPIService.Controllers {
     [MobileAppController]
@@ -37,21 +38,23 @@ namespace BossmandadosAPIService.Controllers {
         }
 
         [HttpPost]
-        public async Task<Manboss_mandados> CrearMandado(List<Manboss_mandados_ruta> ruta, Manboss_mandados mandado) {
+        public async Task<Manboss_mandados> CrearMandado(string ruta, string nuevo_mandado) {
             using (BossmandadosAPIContext context = new BossmandadosAPIContext()) {
                 try {
+                    List<Manboss_mandados_ruta> arr_rutas = JsonConvert.DeserializeObject<List<Manboss_mandados_ruta>>(ruta);
+                    Manboss_mandados mandado = JsonConvert.DeserializeObject<Manboss_mandados>(nuevo_mandado);
                     string query = "INSERT INTO manboss_mandados " +
                         "(estado,cliente,total,fecha,tipo_pago,cuenta_pendiente) " +
                         "VALUES (" + mandado.Estado + "," + mandado.Cliente + "," + mandado.Total + "," + mandado.Fecha.ToString() +
                         "," + mandado.Tipo_pago + "," + mandado.Cuenta_pendiente + ")";
-                    int row = await context.Database.ExecuteSqlCommandAsync(query);
-
-                    foreach(Manboss_mandados_ruta r in ruta) {
+                    await context.Database.ExecuteSqlCommandAsync(query);
+                    context.SaveChanges();
+                    foreach(Manboss_mandados_ruta r in arr_rutas) {
                         query = "INSERT INTO Manboss_ruta " +
-                        "(mandado,servicio,latitud,longitud,calle,numero,comentarios,terminado) " +
+                        "(mandado,servicio,latitud,longitud,calle,numero,comentarios,direccion,terminado) " +
                         "VALUES (" + mandado.Id + "," + r.Servicio + "," + r.Latitud + "," + r.Longitud +
-                        "," + r.Calle + "," + r.Numero + "," + r.Comentarios + "," + r.Terminado + ")";
-                        row = await context.Database.ExecuteSqlCommandAsync(query);
+                        "," + r.Calle + "," + r.Numero + "," + r.Comentarios + "," + r.Direccion + "," + r.Terminado + ")";
+                        await context.Database.ExecuteSqlCommandAsync(query);
                     }
                 }
                 catch {
