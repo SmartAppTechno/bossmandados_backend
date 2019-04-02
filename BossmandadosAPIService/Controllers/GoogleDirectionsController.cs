@@ -12,7 +12,7 @@ using GoogleMapsApi.Entities.Common;
 using BossmandadosAPIService.App_Start;
 using Microsoft.Azure.Mobile.Server.Config;
 using BossmandadosAPIService.Models;
-using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace BossmandadosAPIService.Controllers
 {
@@ -68,6 +68,32 @@ namespace BossmandadosAPIService.Controllers
                     var query = "SELECT * FROM dbo.manboss_mandados_rutas WHERE Mandado = " + MandadoID + " AND Terminado = 0";
                     var ubicaciones = await context.Manboss_mandados_rutas.SqlQuery(query).ToListAsync();
                     DirectionsRequest directionsRequest = SetUpRequest(ref ubicaciones);
+
+                    if (directionsRequest == null)
+                    {
+                        return null;
+                    }
+
+                    DirectionsResponse directions = await GoogleMaps.Directions.QueryAsync(directionsRequest);
+
+                    return SetUpResponse(directions);
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        [HttpPost]
+        public async Task<string> GetPolylineRutas(string ubicaciones)
+        {
+            using (BossmandadosAPIContext context = new BossmandadosAPIContext())
+            {
+                try
+                {
+                    List<Manboss_mandados_ruta> arr_rutas = JsonConvert.DeserializeObject<List<Manboss_mandados_ruta>>(ubicaciones);
+                    DirectionsRequest directionsRequest = SetUpRequest(ref arr_rutas);
 
                     if (directionsRequest == null)
                     {
