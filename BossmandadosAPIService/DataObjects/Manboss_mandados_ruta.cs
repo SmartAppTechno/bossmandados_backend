@@ -18,5 +18,6 @@ namespace BossmandadosAPIService.DataObjects
         public int? Tamanio { get; set; }
         public double? Peso { get; set; }
         public int Terminado { get; set; }
+        public string Direccion { get; internal set; }
     }
 }
