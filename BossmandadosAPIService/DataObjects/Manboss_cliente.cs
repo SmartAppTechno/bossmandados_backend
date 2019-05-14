@@ -12,6 +12,7 @@ namespace BossmandadosAPIService.DataObjects
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string Red_social { get; set; }
+        public string Alias { get; set; }
         public string Direccion { get; set; }
         public double? Latitud { get; set; }
         public double? Longitud { get; set; }
